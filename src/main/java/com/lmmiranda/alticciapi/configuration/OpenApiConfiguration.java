@@ -33,10 +33,16 @@ public class OpenApiConfiguration {
     }
 
     private List<Response> globalGetResponseMessages() {
-        return Arrays.asList(new ResponseBuilder()
+        return Arrays.asList(
+                    new ResponseBuilder()
                         .code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
                         .description("Internal server error.")
-                        .build());
+                        .build(),
+                    new ResponseBuilder()
+                            .code(String.valueOf(HttpStatus.BAD_REQUEST.value()))
+                            .description("Invalid request.")
+                            .build()
+            );
     }
 
     private ApiInfo apiInfo() {

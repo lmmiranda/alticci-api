@@ -1,5 +1,6 @@
 package com.lmmiranda.alticciapi.controller;
 
+import com.lmmiranda.alticciapi.controller.openapi.AlticciSequenceControllerOpenApi;
 import com.lmmiranda.alticciapi.service.AlticciSequenceService;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.math.BigInteger;
 import java.util.concurrent.TimeUnit;
 
+
 @RestController
 @RequestMapping("alticci")
-public class AlticciSequenceController {
+public class AlticciSequenceController implements AlticciSequenceControllerOpenApi {
 
     @GetMapping("{n}")
     public ResponseEntity<BigInteger> calculate(@PathVariable Integer n) {
